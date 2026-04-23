@@ -274,7 +274,7 @@
     .hero p{
       margin-top:20px;
       font-size:1.08rem;
-      color:#4d433a;
+      color:#e3d6c7;
       max-width:60ch;
     }
 
@@ -304,7 +304,7 @@
     }
 
     .hero-note{
-      color:var(--muted);
+      color:#e3d6c7;
       font-size:.95rem;
       font-weight:500;
     }
@@ -377,7 +377,7 @@
       color:var(--accent-dark);
     }
 
-    .stat p{color:var(--muted)}
+    .stat p{color:#e3d6c7}
 
     section{
       padding:78px 0;
@@ -487,7 +487,7 @@
       font-size:1.18rem;
     }
 
-    .service-card p{color:var(--muted)}
+    .service-card p{color:#e3d6c7}
 
     .gallery-wrap{
       display:grid;
@@ -524,7 +524,7 @@
       margin-bottom:8px;
     }
 
-    .featured-copy p{color:var(--muted)}
+    .featured-copy p{color:#e3d6c7}
 
     .mini-gallery{
       display:grid;
@@ -645,6 +645,11 @@
     .contact-card h3{
       font-size:1.3rem;
       margin-bottom:14px;
+      color:#f5e9dc;
+    }
+
+    .contact-card > p{
+      color:#e3d6c7;
     }
 
     .contact-stack{
@@ -672,7 +677,7 @@
     }
 
     .contact-item a,.contact-item p{
-      color:#3f362e;
+      color:#f2e7da;
       font-weight:600;
       word-break:break-word;
     }
@@ -692,7 +697,7 @@
     .field label{
       font-size:.92rem;
       font-weight:600;
-      color:#3e342c;
+      color:#eadbc9;
     }
 
     .field input,.field textarea{
@@ -717,7 +722,7 @@
 
     .form-note{
       grid-column:1 / -1;
-      color:var(--muted);
+      color:#d8c8b6;
       font-size:.92rem;
     }
 
@@ -1018,18 +1023,20 @@
         </div>
 
         <div class="gallery-wrap">
-          <div class="featured-project reveal">
+          <div class="featured-project reveal" style="background:none;">
+            <img src="images/beforestairs.jpg" alt="Before stairs" style="width:100%;height:100%;object-fit:cover;border-radius:30px;">
             <div class="featured-copy">
-              <h3>Featured Installation</h3>
-              <p>Use this space for the strongest before-and-after or clean finished room shot. It should highlight the quality of the install and the finished look of the flooring.</p>
+              <h3>Before & After Transformation</h3>
+              <p>Real project showing the difference quality carpet installation makes.</p>
             </div>
           </div>
 
           <div class="mini-gallery">
-            <div class="mini-shot reveal" data-label="Living Room Install" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80');"></div>
-            <div class="mini-shot reveal" data-label="Bedroom Carpet" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80');"></div>
-            <div class="mini-shot reveal" data-label="Stair Runner" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80');"></div>
-            <div class="mini-shot reveal" data-label="Finished Detail" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="mini-shot reveal" style="background-image:url('images/afterstairs.jpg');" data-label="After Stairs"></div>
+            <div class="mini-shot reveal" style="background-image:url('images/stairs.jpg');" data-label="Stair Install"></div>
+            <div class="mini-shot reveal" style="background-image:url('images/stairs2.jpg');" data-label="Stair Detail"></div>
+            <div class="mini-shot reveal" style="background-image:url('images/boat.jpg');" data-label="Boat Carpet"></div>
+            <div class="mini-shot reveal" style="background-image:url('images/boat2.jpg');" data-label="Boat Detail"></div>
           </div>
         </div>
       </div>
