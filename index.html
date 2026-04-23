@@ -214,13 +214,22 @@
 
     .menu-btn{
       display:none;
-      width:50px;
-      height:50px;
-      border-radius:14px;
+      width:44px;
+      height:44px;
+      border-radius:12px;
       border:1px solid rgba(255,255,255,.10);
-      background:#1d1d1d;
+      background:rgba(29,29,29,.72);
+      backdrop-filter:blur(10px);
       color:#fff;
       cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      font-size:1.2rem;
+      line-height:1;
+    }
+
+    .mobile-panel{
+      display:none;
     }
 
     .hero{
@@ -777,82 +786,103 @@
     }
 
     @media (max-width: 860px){
-      .topbar-inner,
-      .topbar-left,
-      .topbar-right{
-        justify-content:center;
-        text-align:center;
-      }
+      .topbar{display:none}
 
-      .topbar-left,
-      .topbar-right{
-        width:100%;
-        gap:10px 18px;
+      header{
+        backdrop-filter:blur(16px);
+        background:rgba(20,20,20,.82);
       }
 
       .nav{
         min-height:auto;
-        padding:18px 0;
-        flex-wrap:wrap;
-        justify-content:center;
+        padding:10px 0;
+        gap:12px;
+        justify-content:space-between;
+        flex-wrap:nowrap;
       }
 
       .brand{
-        width:100%;
-        justify-content:center;
-        text-align:center;
-        flex-direction:column;
-        gap:12px;
+        width:auto;
+        justify-content:flex-start;
+        text-align:left;
+        flex-direction:row;
+        gap:10px;
       }
 
       .logo-box{
-        width:96px;
-        height:96px;
-      }
-
-      .brand-text{
-        display:grid;
-        gap:4px;
+        width:56px;
+        height:56px;
+        border-radius:14px;
       }
 
       .brand-title{
-        font-size:1.75rem;
+        font-size:1.1rem;
+        line-height:1.08;
       }
 
       .brand-sub{
-        font-size:.95rem;
-      }
-
-      .menu-btn{
         display:none;
       }
 
       .nav-links,
       .nav-actions{
-        display:flex !important;
-        position:static !important;
-        width:100%;
+        display:none !important;
+      }
+
+      .menu-btn{
+        display:inline-flex;
+      }
+
+      .mobile-panel{
+        display:none;
+        padding:0 0 12px;
+      }
+
+      .mobile-panel.open{
+        display:grid;
+        gap:10px;
+      }
+
+      .mobile-links,
+      .mobile-actions{
+        display:grid;
+        gap:10px;
+      }
+
+      .mobile-links a,
+      .mobile-actions a{
+        display:flex;
+        align-items:center;
         justify-content:center;
-        box-shadow:none !important;
+        min-height:48px;
+        padding:12px 16px;
+        border-radius:16px;
+        background:rgba(255,255,255,.04);
+        border:1px solid rgba(255,255,255,.10);
+        color:#f4efe8;
+        font-weight:600;
       }
 
-      .nav-links{
-        flex-wrap:wrap;
-        gap:16px 26px;
-        margin-top:6px;
-      }
-
-      .nav-actions{
-        flex-wrap:wrap;
-        gap:12px;
-        margin-top:6px;
-      }
-
-      .nav-actions .btn{
-        min-width:170px;
+      .mobile-actions .btn{
+        width:100%;
+        min-width:0;
       }
 
       .hero{
+        padding-top:14px;
+      }
+
+      .hero-grid,
+      .gallery-wrap,
+      .contact-grid,
+      .about-grid,
+      .service-grid,
+      .stats-grid,
+      .why-grid,
+      .mini-gallery,
+      .form-card form{
+        grid-template-columns:1fr;
+      }
         padding-top:40px;
       }
 
@@ -893,45 +923,17 @@
         width:min(var(--max), calc(100% - 20px));
       }
 
-      .topbar{
-        font-size:.84rem;
+      .brand-title{
+        font-size:1rem;
       }
-
-      .topbar-inner{justify-content:center}
 
       .logo-box{
-        width:82px;
-        height:82px;
-      }
-
-      .brand-title{
-        font-size:1.4rem;
-      }
-
-      .brand-sub{
-        font-size:.88rem;
-      }
-
-      .nav-links{
-        gap:12px 20px;
-        font-size:.98rem;
-      }
-
-      .nav-actions{
-        flex-direction:column;
-        align-items:stretch;
-      }
-
-      .nav-actions .btn,
-      .hero-actions .btn,
-      .cta-actions .btn,
-      .form-card .btn{
-        width:100%;
-        min-width:0;
+        width:52px;
+        height:52px;
       }
 
       .hero{
-        padding:34px 0 28px;
+        padding:20px 0 28px;
       }
 
       .hero h1{
@@ -1037,10 +1039,21 @@
           <a class="btn btn-primary" href="tel:2398108237">Free Estimate</a>
         </div>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
-          ☰
-        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
       </nav>
+
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="mobile-actions">
+          <a class="btn btn-secondary" href="#work">View Work</a>
+          <a class="btn btn-primary" href="tel:2398108237">Free Estimate</a>
+        </div>
+      </div>
 
       </div>
   </header>
@@ -1060,10 +1073,6 @@
             <div class="chip">Stretching &amp; Repairs</div>
             <div class="chip">Licensed &amp; Insured</div>
             <div class="chip">Free Estimates</div>
-          </div>
-            <div class="chip">Pasco &amp; Pinellas County</div>
-            <div class="chip">Licensed &amp; Insured</div>
-            <div class="chip">One-Man Crew, Personal Service</div>
           </div>
 
           <div class="hero-actions">
@@ -1355,6 +1364,23 @@
     }, { threshold: 0.14 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
+
+    if(menuBtn && mobilePanel){
+      menuBtn.addEventListener('click', () => {
+        mobilePanel.classList.toggle('open');
+        menuBtn.textContent = mobilePanel.classList.contains('open') ? '✕' : '☰';
+      });
+
+      mobilePanel.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobilePanel.classList.remove('open');
+          menuBtn.textContent = '☰';
+        });
+      });
+    }
   </script>
 </body>
 </html>
